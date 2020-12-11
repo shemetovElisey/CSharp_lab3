@@ -4,14 +4,7 @@ namespace CSharp_Lab_3
 {
     class Sum : BinaryOperation
     {
-        public override Expr LhsArg { get; }
-        public override Expr RhsArg { get; }
-
-        public Sum(Expr lhsArg, Expr rhsArg)
-        {
-            LhsArg = lhsArg;
-            RhsArg = rhsArg;
-        }
+        public Sum(Expr left, Expr right) : base(left, right) { }
 
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
              => LhsArg.Compute(variableValues) + RhsArg.Compute(variableValues);

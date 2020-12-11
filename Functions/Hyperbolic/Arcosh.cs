@@ -1,22 +1,20 @@
 using System;
 using System.Collections.Generic;
 
+using static System.Math;
+
 namespace CSharp_Lab_3
 {
     public class Arcosh : Function
     {
-        public override Expr Arg { get; }
-
-        public Arcosh(Expr arg) => Arg = arg;
-        public Arcosh(double arg) => Arg = new Constant(arg);
+        public Arcosh(Expr x) : base(x) { }
 
         public override bool IsConstant { get => false; }
         public override bool IsPolynom { get => false; }
 
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
         {
-            var arg = Arg.Compute(variableValues);
-            return Math.Log(arg + Math.Sqrt(arg * arg - 1));
+            return Acosh(_operand.Compute(variableValues));
         }
     }
 }

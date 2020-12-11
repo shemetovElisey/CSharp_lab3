@@ -5,14 +5,7 @@ namespace CSharp_Lab_3
 
     class Divide : BinaryOperation
     {
-        public override Expr LhsArg { get; }
-        public override Expr RhsArg { get; }
-
-        public Divide(Expr lhsVal, Expr rhsVal)
-        {
-            LhsArg = lhsVal;
-            RhsArg = rhsVal;
-        }
+        public Divide(Expr left, Expr right) : base(left, right) { }
 
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
            => LhsArg.Compute(variableValues) / RhsArg.Compute(variableValues);

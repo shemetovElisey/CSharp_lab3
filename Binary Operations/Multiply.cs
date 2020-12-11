@@ -4,14 +4,7 @@ namespace CSharp_Lab_3
 {
     class Multiply : BinaryOperation
     {
-        public override Expr LhsArg { get; }
-        public override Expr RhsArg { get; }
-
-        public Multiply(Expr lhsVal, Expr rhsVal)
-        {
-            LhsArg = lhsVal;
-            RhsArg = rhsVal;
-        }
+        public Multiply(Expr left, Expr right) : base(left, right) { }
 
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
             => LhsArg.Compute(variableValues) * RhsArg.Compute(variableValues);

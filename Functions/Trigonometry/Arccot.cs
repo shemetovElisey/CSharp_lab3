@@ -1,22 +1,20 @@
 using System;
 using System.Collections.Generic;
 
+using static System.Math;
+
 namespace CSharp_Lab_3
 {
     public class Arccot : Function
     {
-        public override Expr Arg { get; }
-
-        public Arccot(Expr argument) => Arg = argument;
-        public Arccot(double argument) => Arg = new Constant(argument);
+        public Arccot(Expr x) : base(x) { }
 
         public override bool IsConstant { get => false; }
         public override bool IsPolynom { get => false; }
 
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
         {
-            var arg = Arg.Compute(variableValues);
-            return Math.PI - Math.Atan(arg);
+            return Atan(1/_operand.Compute(variableValues));
         }
     }
 }

@@ -1,7 +1,7 @@
 namespace CSharp_Lab_3
 {
-    abstract public class Function : Expr
+    abstract public class Function : UnaryOperation
     {
-        abstract public Expr Arg { get; }
+        public Function(Expr e) : base(e) { }        
     }
 }

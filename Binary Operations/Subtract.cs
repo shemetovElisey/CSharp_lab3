@@ -4,15 +4,8 @@ namespace CSharp_Lab_3
 {
     class Subtract : BinaryOperation
     {
-        public override Expr LhsArg { get; }
-        public override Expr RhsArg { get; }
-
-        public Subtract(Expr lhsVal, Expr rhsVal)
-        {
-            LhsArg = lhsVal;
-            RhsArg = rhsVal;
-        }
-
+        public Subtract(Expr left, Expr right) : base(left, right) { }
+        
         public override double Compute(IReadOnlyDictionary<string, double> variableValues)
            => LhsArg.Compute(variableValues) - RhsArg.Compute(variableValues);
 
